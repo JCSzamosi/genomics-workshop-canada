@@ -1,0 +1,64 @@
+# what is grep
+1. grep NNNNNNNNNNT SRR098026.fastq
+# print in a txt instead of screen
+2. grep NNNNNNNNNNT SRR098026.fastq > bad_reads.txt
+# word count and it's output
+3. wc bad_reads.txt
+# only number of lines
+4. wc -l bad_reads.txt
+# check the other fastq for same string
+5. grep NNNNNNNNNNT SRR097977.fastq
+# save the output in the same file
+6. grep NNNNNNNNNNT SRR097977.fastq > bad_reads.txt
+# to avoid overwrite, use append
+7. grep NNNNNNNNNNT SRR098026.fastq > bad_reads.txt
+7. grep NNNNNNNNNNT SRR097977.fastq >> bad_reads.txt
+# what if I want to search for this string across all the files
+8. grep NNNNNNNNNNT *.fastq
+9. grep NNNNNNNNNNT *.fastq > bad_reads
+# introduce "|"
+10. grep NNNNNNNNNNT *.fastq | head
+11. grep NNNNNNNNNNT *.fastq | wc -l
+######################################
+# forloop
+######################################
+Cover all content and give them two exercise
+
+
+#############################
+# Writing files
+##############################
+# Open a README.txt with nano and explain
+1. nano README.txt
+2. type date, ctrl+o to saave, enter, ctrl+x to exit
+# write a forloop in txt file, and make it excutable
+3. nano renamer-script.sh
+# inside nano type forlooop as follow
+# my first script
+4.
+for filename in *_2019.txt
+do
+echo $filename
+name=$(basename $filename _2019.txt)
+mv $filename ${name}.txt
+done
+# save
+# explain permisssion and give
+chmod +x renamer-script.sh
+
+##################################
+# getting data from cloud
+##################################
+
+# do you havee wget or curl in your system?
+1. which wget / which curl
+
+wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
+
+or 
+
+curl -O ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
+
+# transfer data between local and remote machines
+scp
+
